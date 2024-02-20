@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cevpq868m7oim"]
+
+[ext_resource type="PackedScene" uid="uid://dl2ed4gkybggf" path="res://objects/player.tscn" id="1_t4b4r"]
+[ext_resource type="Texture2D" uid="uid://2jld33y6h5pq" path="res://sprites/crosshair.png" id="2_j6c2f"]
+[ext_resource type="PackedScene" uid="uid://caitb512qpyai" path="res://models/interior.glb" id="3_3dflr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_v3bd4"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_eil3t"]
+sky_material = SubResource("ProceduralSkyMaterial_v3bd4")
+
+[sub_resource type="Environment" id="Environment_dg45u"]
+background_mode = 2
+sky = SubResource("Sky_eil3t")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dg45u")
+
+[node name="Player" parent="." node_paths=PackedStringArray("crosshair") instance=ExtResource("1_t4b4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2.885, 2)
+crosshair = NodePath("xhair")
+
+[node name="xhair" type="TextureRect" parent="Player"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_j6c2f")
+
+[node name="interior" parent="." instance=ExtResource("3_3dflr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77663, 0, -9.28978)
+
+[editable path="Player"]
