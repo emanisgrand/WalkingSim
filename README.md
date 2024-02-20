@@ -9,10 +9,6 @@ This package includes a basic template for a first person shooter in Godot 4.1.1
 - Enemies
 - Sprites and 3D Models _(CC0 licensed)_
 
-### Screenshot
-
-<p align="center"><img src="screenshots/screenshot.png"/></p>
-
 ### Controls
 
 | Key | Command |
@@ -21,6 +17,8 @@ This package includes a basic template for a first person shooter in Godot 4.1.1
 | <kbd>Spacebar</kbd> | Jump |
 | <kbd>Left mouse button</kbd> | Shoot |
 | <kbd>E</kbd> | Switch weapon |
+
+### 
 
 ### License
 
